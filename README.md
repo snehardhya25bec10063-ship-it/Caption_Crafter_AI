@@ -23,9 +23,7 @@ Example of Captions Generated -
 
    -Mood: Chill
 
-   -Output:
-
-   -Chasing sunsets and good vibes only 
+   -Output: Chasing sunsets and good vibes only 
 
    -#BeachDays #GoldenHour #LifeIsBetterWithFriends
 
