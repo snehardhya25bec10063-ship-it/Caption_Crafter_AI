@@ -14,18 +14,23 @@ Features :
 -Works offline with mock mode (great for demos or testing)
 
 Live Demo :
+
 http://127.0.0.1:5000
 
 Example of Captions Generated -
 
 -Input: "Sunset at the beach with friends"
+
 -Mood: Chill
+
 -Output:
--Chasing sunsets and good vibes only 🌅✨
+
+-Chasing sunsets and good vibes only 
+
 -#BeachDays #GoldenHour #LifeIsBetterWithFriends
--Contributing
 
 Future ideas/Contributing
+
  Pull requests are welcome! Feel free to:
 
 -Improve the UI/UX
