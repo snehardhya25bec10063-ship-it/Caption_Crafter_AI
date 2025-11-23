@@ -29,11 +29,15 @@ Example of Captions Generated -
 
 -#BeachDays #GoldenHour #LifeIsBetterWithFriends
 
+
 Future ideas/Contributing
 
  Pull requests are welcome! Feel free to:
 
 -Improve the UI/UX
+
 -Add more mood presets
+
 -Support image upload + vision analysis (GPT-4 Vision)
+
 -Add caption length options
