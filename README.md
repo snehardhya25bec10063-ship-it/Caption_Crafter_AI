@@ -16,7 +16,7 @@ Features :
    -Works offline with mock mode (great for demos or testing)
    
 
-Live Demo : http://127.0.0.1:5000
+Demo : In order to use the programme open the programme in vs code, and then type- python app.py, in the terminal, then a link will be generated, follow the link to use the web application.
 
 
 Example of Captions Generated -
