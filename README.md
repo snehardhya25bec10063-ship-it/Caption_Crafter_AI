@@ -1,61 +1,75 @@
-📸 Caption Crafter AI
+# Caption Crafter AI
 
-A simple web application that creates Instagram-style captions using Google’s Gemini API. You describe your post, pick a mood, and the app generates a short caption for you.
+A small Flask web app that generates short Instagram captions using Google's Gemini API. You enter a description of your post and choose a mood, and the app generates a short caption for you.
 
-👉 Live Demo:
+👉 **Live Demo:**  
 https://caption-crafter-ai-1.onrender.com/
 
-📱 Demo Preview
+## 📱 Demo Preview  
 
-Here’s how the app looks when generating a caption:
 
-(If you want, I can crop or enhance this screenshot and upload a cleaner version.)
+<img width="1722" height="958" alt="image" src="https://github.com/user-attachments/assets/b2d50e50-ec3a-44d2-8393-fc68e640f725" />
 
-⭐ What this app does
 
-Caption Crafter AI takes a short description of your post and the mood you want. It sends this to the Gemini API and returns a clean, ready-to-use caption. The interface is a single responsive HTML page with a smooth gradient design and subtle animations.
+## Features
 
-🔧 Tech stack
+* 🚀 Features
 
-Python 3.11
+* Clean and modern UI
+* One-click caption generation
+* Uses the Gemini gemini-2.0-flash REST endpoint
+* Multiple moods like funny, romantic, casual, inspirational and more.
+* Handles API rate limits safely
+* Works locally and on cloud platforms
+* Deployment-ready for Render, Railway, ngrok, and Heroku
 
-Flask
+## How it works
 
-Google Gemini API (REST)
+1. You submit a description and select the mood.
+2. The backend sends a short prompt to the Gemini API.
+3. The app calls:
+   `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
+4. The model returns a caption.  
+5. The app displays one clean line of text.
 
-HTML + CSS
+## Installation
 
-Gunicorn for production
+Install the required packages:
 
-🚀 Features
+```
+pip install flask requests python-dotenv
+```
 
-Clean and modern UI
+## Environment variables
 
-One-click caption generation
+Create a `.env` file (or set these in your system):
 
-Multiple moods like funny, romantic, casual, inspirational and more
+```
+GEMINI_API_KEY=your_api_key_here
+MOCK_FALLBACK=1   # optional; enables mock captions when no key is present
+FLASK_ENV=development
+```
 
-Handles API rate limits safely
+If you don’t set `GEMINI_API_KEY`, the app will still run. With fallback enabled, it returns mock captions.
 
-Works locally and on cloud platforms
+## Running the app
 
-Deployment-ready for Render, Railway, ngrok, and Heroku
+Start the server:
 
-🛠 How it works
+```
+python app.py
+```
 
-You type what your post is about.
+Open the app in your browser:
 
-You choose a mood.
+```
+http://localhost:5000
+```
 
-The server sends a simple prompt to Gemini.
+## Project structure
 
-Gemini returns a caption.
-
-The backend extracts one short line and shows it.
-
-Everything runs through app.py.
-
-📁 Project structure
+## 📁 Project structure  
+```
 /
 │ app.py
 │ requirements.txt
@@ -67,35 +81,18 @@ Everything runs through app.py.
 │
 └── templates/
     └── index.html
+```
+## Notes
 
-▶️ Run the app locally
+* Don’t commit your API key to GitHub.
+* Debug logs can reveal parts of prompts and responses. Keep debug mode off in production.
+* You can adjust `REQUEST_DELAY` in the code if you run into rate-limit errors.
 
-Install dependencies
+## 🌍 Deployment  
+A full guide on how to deploy this project is included in `DEPLOYMENT.md`.
 
-pip install -r requirements.txt
+## Future improvements
 
-
-Create a .env file
-
-GEMINI_API_KEY=your_key_here
-
-
-Start the server
-
-python app.py
-
-
-Visit:
-
-http://localhost:5000
-
-🌍 Deployment
-
-A full guide for deploying the app is included in DEPLOYMENT.md.
-
-🔒 Environment variables
-
-Set these before deploying:
-
-GEMINI_API_KEY=your_api_key_here
-FLASK_ENV=production
+* Separate Gemini client module
+* Stronger rate limiting or caching
+* Optional authentication before generating captions
