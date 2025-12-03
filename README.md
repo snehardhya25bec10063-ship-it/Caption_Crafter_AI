@@ -5,6 +5,9 @@ A small Flask web app that generates short Instagram captions using Google's Gem
 👉 **Live Demo:**  
 https://caption-crafter-ai-1.onrender.com/
 
+## Note on Render Free Tier
+This project is hosted on Render's free tier. Free instances go to sleep after 15 minutes of inactivity. When the service has been idle, the first request may take 40–60 seconds to start the app again.  
+After that, the app works normally.
 
 ## 📱 Demo Preview  
 
