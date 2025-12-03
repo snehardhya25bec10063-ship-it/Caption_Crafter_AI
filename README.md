@@ -1,73 +1,101 @@
-# Caption_Crafter_AI
+📸 Caption Crafter AI
 
-A small Flask web app that generates short captions for your social media posts using Google's Gemini API. You enter a description of your post and choose a mood, and the app returns one clean caption. It also includes a mock fallback mode so it keeps working even when the API key is missing.
+A simple web application that creates Instagram-style captions using Google’s Gemini API. You describe your post, pick a mood, and the app generates a short caption for you.
 
-## Features
+👉 Live Demo:
+https://caption-crafter-ai-1.onrender.com/
 
-* Simple web form for description and mood
-* Uses the Gemini `gemini-2.0-flash` REST endpoint
-* Built-in request delay to reduce rate-limit errors
-* Mock caption generator for offline use or missing API key
-* Clean text parsing so you get only one caption without extra formatting
+📱 Demo Preview
 
-## How it works
+Here’s how the app looks when generating a caption:
 
-1. You submit a description and mood through the homepage.
-2. Flask builds a short prompt and prepares the JSON payload.
-3. The app calls:
-   `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
-4. It extracts the first usable line of text from the response.
-5. If the API key is missing or something goes wrong, the app returns a mock caption.
+(If you want, I can crop or enhance this screenshot and upload a cleaner version.)
 
-## Installation
+⭐ What this app does
 
-Install the required packages:
+Caption Crafter AI takes a short description of your post and the mood you want. It sends this to the Gemini API and returns a clean, ready-to-use caption. The interface is a single responsive HTML page with a smooth gradient design and subtle animations.
 
-```
-pip install flask requests python-dotenv
-```
+🔧 Tech stack
 
-## Environment variables
+Python 3.11
 
-Create a `.env` file (or set these in your system):
+Flask
 
-```
-GEMINI_API_KEY=your_api_key_here
-MOCK_FALLBACK=1   # optional; enables mock captions when no key is present
-FLASK_ENV=development
-```
+Google Gemini API (REST)
 
-If you don’t set `GEMINI_API_KEY`, the app will still run. With fallback enabled, it returns mock captions.
+HTML + CSS
 
-## Running the app
+Gunicorn for production
 
-Start the server:
+🚀 Features
 
-```
+Clean and modern UI
+
+One-click caption generation
+
+Multiple moods like funny, romantic, casual, inspirational and more
+
+Handles API rate limits safely
+
+Works locally and on cloud platforms
+
+Deployment-ready for Render, Railway, ngrok, and Heroku
+
+🛠 How it works
+
+You type what your post is about.
+
+You choose a mood.
+
+The server sends a simple prompt to Gemini.
+
+Gemini returns a caption.
+
+The backend extracts one short line and shows it.
+
+Everything runs through app.py.
+
+📁 Project structure
+/
+│ app.py
+│ requirements.txt
+│ runtime.txt
+│ Procfile
+│ README.md
+│ DEPLOYMENT.md
+│ .gitignore
+│
+└── templates/
+    └── index.html
+
+▶️ Run the app locally
+
+Install dependencies
+
+pip install -r requirements.txt
+
+
+Create a .env file
+
+GEMINI_API_KEY=your_key_here
+
+
+Start the server
+
 python app.py
-```
 
-Open the app in your browser:
 
-```
-http://127.0.0.1:5000/
-```
+Visit:
 
-## Project structure
+http://localhost:5000
 
-* **app.py** – Flask server and Gemini API logic
-* **templates/index.html** – HTML form and output page
-* **.env** – optional environment configuration
+🌍 Deployment
 
-## Notes
+A full guide for deploying the app is included in DEPLOYMENT.md.
 
-* Don’t commit your API key to GitHub.
-* Debug logs can reveal parts of prompts and responses. Keep debug mode off in production.
-* You can adjust `REQUEST_DELAY` in the code if you run into rate-limit errors.
+🔒 Environment variables
 
-## Future improvements
+Set these before deploying:
 
-* Better frontend styling
-* Separate Gemini client module
-* Stronger rate limiting or caching
-* Optional authentication before generating captions
+GEMINI_API_KEY=your_api_key_here
+FLASK_ENV=production
